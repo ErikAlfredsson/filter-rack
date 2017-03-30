@@ -13,12 +13,18 @@ class PropertyKnob: UIView {
     @IBOutlet weak var rotaryKnob: MHRotaryKnob!
     @IBOutlet weak var label: UILabel!
 
+    var value: CGFloat = 0 {
+        didSet {
+            rotaryKnob.value = value
+        }
+    }
+
     weak var delegate: PropertyKnobDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        rotaryKnob.interactionStyle = MHRotaryKnobInteractionStyle.rotating
+        rotaryKnob.interactionStyle = MHRotaryKnobInteractionStyle.sliderVertical
         rotaryKnob.scalingFactor = 1
         rotaryKnob.minimumValue = 0
         rotaryKnob.maximumValue = 1

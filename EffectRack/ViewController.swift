@@ -22,6 +22,8 @@ class ViewController: UIViewController, PropertyKnobDelegate {
         super.viewDidLoad()
 
         timeKnob.delegate = self
+        feedbackKnob.delegate = self
+        mixKnob.delegate = self
 
         configureEffect()
         AudioKit.start()
@@ -29,9 +31,13 @@ class ViewController: UIViewController, PropertyKnobDelegate {
 
     func configureEffect() {
         delay = AKDelay(mic)
-        delay?.time = 0.01 // seconds
-        delay?.feedback  = 0.9 // Normalized Value 0 - 1
-        delay?.dryWetMix = 0.6 // Normalized Value 0 - 1
+        delay?.time = 0.01
+        delay?.feedback  = 0.9
+        delay?.dryWetMix = 0.6
+
+        timeKnob.value = CGFloat(delay!.time)
+        feedbackKnob.value = CGFloat(delay!.feedback)
+        mixKnob.value = CGFloat(delay!.dryWetMix)
 
         AudioKit.output = delay
     }
@@ -43,7 +49,7 @@ class ViewController: UIViewController, PropertyKnobDelegate {
         case feedbackKnob:
             delay?.feedback = Double(value)
         case mixKnob:
-            delay?.feedback = Double(value)
+            delay?.dryWetMix = Double(value)
         default:
             return
         }
