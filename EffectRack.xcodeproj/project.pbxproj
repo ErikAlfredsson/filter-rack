@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03DA20E51E8CECF90043EF46 /* PropertyKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DA20E41E8CECF90043EF46 /* PropertyKnob.swift */; };
+		03DA20E71E8CF0930043EF46 /* PropertyKnob.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03DA20E61E8CF0930043EF46 /* PropertyKnob.xib */; };
+		03DA20E91E8D01390043EF46 /* NibInstatiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DA20E81E8D01390043EF46 /* NibInstatiator.swift */; };
+		03DA20EF1E8D2C8A0043EF46 /* MHRotaryKnob.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DA20EE1E8D2C8A0043EF46 /* MHRotaryKnob.m */; };
+		03DA20F71E8D3A940043EF46 /* PropertyKnobDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DA20F61E8D3A940043EF46 /* PropertyKnobDelegate.swift */; };
 		03DF71511E8BE3F70058F621 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DF71501E8BE3F70058F621 /* AppDelegate.swift */; };
 		03DF71531E8BE3F70058F621 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DF71521E8BE3F70058F621 /* ViewController.swift */; };
 		03DF71561E8BE3F70058F621 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03DF71541E8BE3F70058F621 /* Main.storyboard */; };
@@ -14,7 +19,6 @@
 		03DF715B1E8BE3F70058F621 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03DF71591E8BE3F70058F621 /* LaunchScreen.storyboard */; };
 		03DF71671E8BE44B0058F621 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DF71661E8BE44B0058F621 /* AudioKit.framework */; };
 		03DF71681E8BE44B0058F621 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03DF71661E8BE44B0058F621 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		03DF716B1E8BE65C0058F621 /* DelayEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DF716A1E8BE65C0058F621 /* DelayEffect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +36,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		03DA20E41E8CECF90043EF46 /* PropertyKnob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyKnob.swift; sourceTree = "<group>"; };
+		03DA20E61E8CF0930043EF46 /* PropertyKnob.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PropertyKnob.xib; sourceTree = "<group>"; };
+		03DA20E81E8D01390043EF46 /* NibInstatiator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibInstatiator.swift; sourceTree = "<group>"; };
+		03DA20ED1E8D2C8A0043EF46 /* MHRotaryKnob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHRotaryKnob.h; sourceTree = "<group>"; };
+		03DA20EE1E8D2C8A0043EF46 /* MHRotaryKnob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHRotaryKnob.m; sourceTree = "<group>"; };
+		03DA20F21E8D2CE30043EF46 /* EffectRack-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EffectRack-Bridging-Header.h"; sourceTree = "<group>"; };
+		03DA20F61E8D3A940043EF46 /* PropertyKnobDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyKnobDelegate.swift; sourceTree = "<group>"; };
 		03DF714D1E8BE3F70058F621 /* EffectRack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EffectRack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03DF71501E8BE3F70058F621 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03DF71521E8BE3F70058F621 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,7 +51,6 @@
 		03DF715A1E8BE3F70058F621 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03DF715C1E8BE3F70058F621 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03DF71661E8BE44B0058F621 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
-		03DF716A1E8BE65C0058F621 /* DelayEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelayEffect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,12 +65,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		03DF71441E8BE3F70058F621 = {
+		03DA20EC1E8D2C8A0043EF46 /* MHRotaryKnob */ = {
+			isa = PBXGroup;
+			children = (
+				03DA20ED1E8D2C8A0043EF46 /* MHRotaryKnob.h */,
+				03DA20EE1E8D2C8A0043EF46 /* MHRotaryKnob.m */,
+			);
+			path = MHRotaryKnob;
+			sourceTree = "<group>";
+		};
+		03DA20F31E8D34960043EF46 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				03DF71661E8BE44B0058F621 /* AudioKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		03DA20F81E8D3CDF0043EF46 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				03DF71501E8BE3F70058F621 /* AppDelegate.swift */,
+				03DF71521E8BE3F70058F621 /* ViewController.swift */,
+				03DA20E41E8CECF90043EF46 /* PropertyKnob.swift */,
+				03DA20E81E8D01390043EF46 /* NibInstatiator.swift */,
+				03DA20F61E8D3A940043EF46 /* PropertyKnobDelegate.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		03DA20F91E8D3CF30043EF46 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				03DF71541E8BE3F70058F621 /* Main.storyboard */,
+				03DA20E61E8CF0930043EF46 /* PropertyKnob.xib */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		03DF71441E8BE3F70058F621 = {
+			isa = PBXGroup;
+			children = (
 				03DF714F1E8BE3F70058F621 /* EffectRack */,
 				03DF714E1E8BE3F70058F621 /* Products */,
+				03DA20F31E8D34960043EF46 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,13 +123,13 @@
 		03DF714F1E8BE3F70058F621 /* EffectRack */ = {
 			isa = PBXGroup;
 			children = (
-				03DF71501E8BE3F70058F621 /* AppDelegate.swift */,
-				03DF71521E8BE3F70058F621 /* ViewController.swift */,
-				03DF71541E8BE3F70058F621 /* Main.storyboard */,
+				03DA20F91E8D3CF30043EF46 /* Interface */,
+				03DA20F81E8D3CDF0043EF46 /* Classes */,
 				03DF71571E8BE3F70058F621 /* Assets.xcassets */,
 				03DF71591E8BE3F70058F621 /* LaunchScreen.storyboard */,
 				03DF715C1E8BE3F70058F621 /* Info.plist */,
-				03DF716A1E8BE65C0058F621 /* DelayEffect.swift */,
+				03DA20EC1E8D2C8A0043EF46 /* MHRotaryKnob */,
+				03DA20F21E8D2CE30043EF46 /* EffectRack-Bridging-Header.h */,
 			);
 			path = EffectRack;
 			sourceTree = "<group>";
@@ -147,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03DA20E71E8CF0930043EF46 /* PropertyKnob.xib in Resources */,
 				03DF715B1E8BE3F70058F621 /* LaunchScreen.storyboard in Resources */,
 				03DF71581E8BE3F70058F621 /* Assets.xcassets in Resources */,
 				03DF71561E8BE3F70058F621 /* Main.storyboard in Resources */,
@@ -160,9 +209,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03DA20E91E8D01390043EF46 /* NibInstatiator.swift in Sources */,
+				03DA20E51E8CECF90043EF46 /* PropertyKnob.swift in Sources */,
 				03DF71531E8BE3F70058F621 /* ViewController.swift in Sources */,
 				03DF71511E8BE3F70058F621 /* AppDelegate.swift in Sources */,
-				03DF716B1E8BE65C0058F621 /* DelayEffect.swift in Sources */,
+				03DA20F71E8D3A940043EF46 /* PropertyKnobDelegate.swift in Sources */,
+				03DA20EF1E8D2C8A0043EF46 /* MHRotaryKnob.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +349,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.erikalfredsson.EffectRack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/erikalfredsson/ustwo/EffectRack/EffectRack/EffectRack-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -315,6 +368,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.erikalfredsson.EffectRack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/erikalfredsson/ustwo/EffectRack/EffectRack/EffectRack-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -338,6 +392,7 @@
 				03DF71611E8BE3F70058F621 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

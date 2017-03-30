@@ -9,13 +9,19 @@
 import UIKit
 import AudioKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, PropertyKnobDelegate {
+
+    @IBOutlet weak var timeKnob: PropertyKnob!
+    @IBOutlet weak var feedbackKnob: PropertyKnob!
+    @IBOutlet weak var mixKnob: PropertyKnob!
 
     let mic = AKMicrophone()
     var delay: AKDelay?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        timeKnob.delegate = self
 
         configureEffect()
         AudioKit.start()
@@ -30,16 +36,17 @@ class ViewController: UIViewController {
         AudioKit.output = delay
     }
 
-    @IBAction func timeSliderValueChanged(sender: UISlider) {
-        delay?.time = Double(sender.value)
-    }
-
-    @IBAction func feedbackSliderValueChanged(sender: UISlider) {
-        delay?.feedback = Double(sender.value)
-    }
-
-    @IBAction func mixSliderValueChanged(sender: UISlider) {
-        delay?.dryWetMix = Double(sender.value)
+    func propertyKnob(propertyKnob: PropertyKnob, didChange value: CGFloat) {
+        switch propertyKnob {
+        case timeKnob:
+            delay?.time = Double(value)
+        case feedbackKnob:
+            delay?.feedback = Double(value)
+        case mixKnob:
+            delay?.feedback = Double(value)
+        default:
+            return
+        }
     }
 
 }
