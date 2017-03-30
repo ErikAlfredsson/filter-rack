@@ -9,14 +9,13 @@
 import UIKit
 import AudioKit
 
-class ViewController: UIViewController, PropertyKnobDelegate {
+class DelayViewController: EffectViewController, PropertyKnobDelegate {
 
     @IBOutlet weak var timeKnob: PropertyKnob!
     @IBOutlet weak var feedbackKnob: PropertyKnob!
     @IBOutlet weak var mixKnob: PropertyKnob!
 
     let mic = AKMicrophone()
-    var delay: AKDelay?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,26 +29,35 @@ class ViewController: UIViewController, PropertyKnobDelegate {
     }
 
     func configureEffect() {
-        delay = AKDelay(mic)
-        delay?.time = 0.01
-        delay?.feedback  = 0.9
-        delay?.dryWetMix = 0.6
+        effect = AKDelay(mic)
 
-        timeKnob.value = CGFloat(delay!.time)
-        feedbackKnob.value = CGFloat(delay!.feedback)
-        mixKnob.value = CGFloat(delay!.dryWetMix)
+        guard let delay = effect as? AKDelay else {
+            return
+        }
 
-        AudioKit.output = delay
+        delay.time = 0.01
+        delay.feedback  = 0.9
+        delay.dryWetMix = 0.6
+
+        timeKnob.value = CGFloat(delay.time)
+        feedbackKnob.value = CGFloat(delay.feedback)
+        mixKnob.value = CGFloat(delay.dryWetMix)
+
+        AudioKit.output = effect
     }
 
     func propertyKnob(propertyKnob: PropertyKnob, didChange value: CGFloat) {
+        guard let delay = effect as? AKDelay else {
+            return
+        }
+
         switch propertyKnob {
         case timeKnob:
-            delay?.time = Double(value)
+            delay.time = Double(value)
         case feedbackKnob:
-            delay?.feedback = Double(value)
+            delay.feedback = Double(value)
         case mixKnob:
-            delay?.dryWetMix = Double(value)
+            delay.dryWetMix = Double(value)
         default:
             return
         }

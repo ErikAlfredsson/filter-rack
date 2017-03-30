@@ -12,8 +12,11 @@
 		03DA20E91E8D01390043EF46 /* NibInstatiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DA20E81E8D01390043EF46 /* NibInstatiator.swift */; };
 		03DA20EF1E8D2C8A0043EF46 /* MHRotaryKnob.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DA20EE1E8D2C8A0043EF46 /* MHRotaryKnob.m */; };
 		03DA20F71E8D3A940043EF46 /* PropertyKnobDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DA20F61E8D3A940043EF46 /* PropertyKnobDelegate.swift */; };
+		03DA20FB1E8D58090043EF46 /* ReverbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DA20FA1E8D58090043EF46 /* ReverbViewController.swift */; };
+		03DA20FD1E8D58220043EF46 /* RackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DA20FC1E8D58220043EF46 /* RackViewController.swift */; };
+		03DA20FF1E8D59860043EF46 /* EffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DA20FE1E8D59860043EF46 /* EffectViewController.swift */; };
 		03DF71511E8BE3F70058F621 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DF71501E8BE3F70058F621 /* AppDelegate.swift */; };
-		03DF71531E8BE3F70058F621 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DF71521E8BE3F70058F621 /* ViewController.swift */; };
+		03DF71531E8BE3F70058F621 /* DelayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DF71521E8BE3F70058F621 /* DelayViewController.swift */; };
 		03DF71561E8BE3F70058F621 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03DF71541E8BE3F70058F621 /* Main.storyboard */; };
 		03DF71581E8BE3F70058F621 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03DF71571E8BE3F70058F621 /* Assets.xcassets */; };
 		03DF715B1E8BE3F70058F621 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03DF71591E8BE3F70058F621 /* LaunchScreen.storyboard */; };
@@ -43,9 +46,12 @@
 		03DA20EE1E8D2C8A0043EF46 /* MHRotaryKnob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHRotaryKnob.m; sourceTree = "<group>"; };
 		03DA20F21E8D2CE30043EF46 /* EffectRack-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EffectRack-Bridging-Header.h"; sourceTree = "<group>"; };
 		03DA20F61E8D3A940043EF46 /* PropertyKnobDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyKnobDelegate.swift; sourceTree = "<group>"; };
+		03DA20FA1E8D58090043EF46 /* ReverbViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReverbViewController.swift; sourceTree = "<group>"; };
+		03DA20FC1E8D58220043EF46 /* RackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RackViewController.swift; sourceTree = "<group>"; };
+		03DA20FE1E8D59860043EF46 /* EffectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EffectViewController.swift; sourceTree = "<group>"; };
 		03DF714D1E8BE3F70058F621 /* EffectRack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EffectRack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03DF71501E8BE3F70058F621 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		03DF71521E8BE3F70058F621 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		03DF71521E8BE3F70058F621 /* DelayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayViewController.swift; sourceTree = "<group>"; };
 		03DF71551E8BE3F70058F621 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		03DF71571E8BE3F70058F621 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03DF715A1E8BE3F70058F621 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -86,10 +92,13 @@
 			isa = PBXGroup;
 			children = (
 				03DF71501E8BE3F70058F621 /* AppDelegate.swift */,
-				03DF71521E8BE3F70058F621 /* ViewController.swift */,
+				03DF71521E8BE3F70058F621 /* DelayViewController.swift */,
 				03DA20E41E8CECF90043EF46 /* PropertyKnob.swift */,
 				03DA20E81E8D01390043EF46 /* NibInstatiator.swift */,
 				03DA20F61E8D3A940043EF46 /* PropertyKnobDelegate.swift */,
+				03DA20FA1E8D58090043EF46 /* ReverbViewController.swift */,
+				03DA20FC1E8D58220043EF46 /* RackViewController.swift */,
+				03DA20FE1E8D59860043EF46 /* EffectViewController.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -211,10 +220,13 @@
 			files = (
 				03DA20E91E8D01390043EF46 /* NibInstatiator.swift in Sources */,
 				03DA20E51E8CECF90043EF46 /* PropertyKnob.swift in Sources */,
-				03DF71531E8BE3F70058F621 /* ViewController.swift in Sources */,
+				03DF71531E8BE3F70058F621 /* DelayViewController.swift in Sources */,
+				03DA20FD1E8D58220043EF46 /* RackViewController.swift in Sources */,
 				03DF71511E8BE3F70058F621 /* AppDelegate.swift in Sources */,
+				03DA20FB1E8D58090043EF46 /* ReverbViewController.swift in Sources */,
 				03DA20F71E8D3A940043EF46 /* PropertyKnobDelegate.swift in Sources */,
 				03DA20EF1E8D2C8A0043EF46 /* MHRotaryKnob.m in Sources */,
+				03DA20FF1E8D59860043EF46 /* EffectViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
