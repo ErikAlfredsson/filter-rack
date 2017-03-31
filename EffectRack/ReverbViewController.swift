@@ -11,20 +11,51 @@ import AudioKit
 
 class ReverbViewController: UIViewController, PropertyKnobDelegate, EffectController {
 
-    weak var delegate: EffectDelegate?
-    var effect: AKNode?
+    @IBOutlet weak var mixKnob: PropertyKnob!
+    @IBOutlet weak var onOffButton: UIButton!
 
+    var effect: AKNode?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        mixKnob.delegate = self
     }
 
-    func configureEffect(input: AKNode) -> AKNode? {
+    func initEffect(input: AKNode) -> AKNode? {
+        effect = AKReverb(input)
+
+        toggleState(enable: false)
+
         return effect
     }
 
     func propertyKnob(propertyKnob: PropertyKnob, didChange value: CGFloat) {
+        guard let reverb = effect as? AKReverb, reverb.isStarted else {
+            return
+        }
 
+        reverb.dryWetMix = Double(value)
+    }
+
+    @IBAction func onOffButtonTapped(_ sender: UIButton) {
+        guard let reverb = effect as? AKReverb else {
+            return
+        }
+
+        toggleState(enable: !reverb.isStarted)
+    }
+
+    func toggleState(enable: Bool) {
+        let imageName = enable ? "push_button_active" : "push_button_inactive"
+        onOffButton.setImage(UIImage(named: imageName), for: .normal)
+
+        if enable {
+            propertyKnob(propertyKnob: mixKnob, didChange: mixKnob.value)
+            (effect as! AKReverb).start()
+        } else {
+            (effect as! AKReverb).stop()
+        }
     }
 
 }

@@ -11,9 +11,9 @@ import AudioKit
 
 protocol EffectController: class {
 
-    weak var delegate: EffectDelegate? {get set}
     var effect: AKNode? {get set}
 
-    func configureEffect(input: AKNode) -> AKNode?
+    func initEffect(input: AKNode) -> AKNode?
+    func toggleState(enable: Bool)
 
 }

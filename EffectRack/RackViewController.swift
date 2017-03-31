@@ -9,7 +9,7 @@
 import UIKit
 import AudioKit
 
-class RackViewController: UIViewController, EffectDelegate {
+class RackViewController: UIViewController {
 
     let mic = AKMicrophone()
     var lastOutput: AKNode?
@@ -19,32 +19,30 @@ class RackViewController: UIViewController, EffectDelegate {
 
         lastOutput = mic
 
+        configureChain()
+
+        AudioKit.output = lastOutput
+        AudioKit.start()
+    }
+
+    func configureChain() {
         for vc in childViewControllers {
             guard let effectViewController = vc as? EffectController else {
                 return
             }
-
-            effectViewController.delegate = self
 
             guard lastOutput != nil else {
                 print("No input for next effect in chain...")
                 break
             }
 
-            guard let newOutput = effectViewController.configureEffect(input: lastOutput!) else {
+            guard let newOutput = effectViewController.initEffect(input: lastOutput!) else {
                 print("No output from effect...")
                 break
             }
 
             lastOutput = newOutput
         }
-
-        AudioKit.output = lastOutput
-        AudioKit.start()
-    }
-
-    func enable(enable: Bool, effect: AKNode?) {
-        
-    }
+    }    
 
 }

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -221,6 +222,7 @@
                     <connections>
                         <outlet property="feedbackKnob" destination="zS6-7D-EmF" id="nBr-9a-mbc"/>
                         <outlet property="mixKnob" destination="ROz-68-LrZ" id="yMl-sw-77p"/>
+                        <outlet property="onOffButton" destination="k7s-pk-rEx" id="4pL-tl-qVX"/>
                         <outlet property="timeKnob" destination="Unu-Yn-fgh" id="AFf-ut-m6T"/>
                     </connections>
                 </viewController>
@@ -235,8 +237,82 @@
                     <view key="view" contentMode="scaleToFill" id="xxp-zh-HdJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Reverb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sii-Ki-860">
+                                <rect key="frame" x="0.0" y="20" width="375" height="41.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYi-c7-WFX">
+                                <rect key="frame" x="143" y="539" width="88" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="OIn-8o-OAp"/>
+                                    <constraint firstAttribute="width" constant="88" id="mUX-EH-pXA"/>
+                                </constraints>
+                                <state key="normal" image="push_button_inactive"/>
+                                <connections>
+                                    <action selector="onOffButtonTapped:" destination="8ym-gw-2dH" eventType="touchUpInside" id="Yfp-ir-QKS"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pZY-yO-FZB">
+                                <rect key="frame" x="16" y="61" width="343" height="478"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xa-XB-LZB" customClass="PropertyKnob" customModule="EffectRack" customModuleProvider="target">
+                                        <rect key="frame" x="127.5" y="0.0" width="88.5" height="478"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mix" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLI-OB-kku" userLabel="Label">
+                                                <rect key="frame" x="0.0" y="293" width="88.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AfG-fh-ld4" customClass="MHRotaryKnob">
+                                                <rect key="frame" x="0.0" y="195" width="88.5" height="88"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="88" id="Wwi-q6-eez"/>
+                                                    <constraint firstAttribute="height" constant="88" id="jd7-Pq-0Av"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="AfG-fh-ld4" secondAttribute="trailing" id="DtB-gh-bNt"/>
+                                            <constraint firstItem="AfG-fh-ld4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5xa-XB-LZB" secondAttribute="top" id="ZXg-X9-KZ1"/>
+                                            <constraint firstItem="AfG-fh-ld4" firstAttribute="centerX" secondItem="XLI-OB-kku" secondAttribute="centerX" id="gVh-Tg-def"/>
+                                            <constraint firstItem="XLI-OB-kku" firstAttribute="leading" secondItem="5xa-XB-LZB" secondAttribute="leading" id="oXc-n7-xjm"/>
+                                            <constraint firstItem="XLI-OB-kku" firstAttribute="top" secondItem="AfG-fh-ld4" secondAttribute="bottom" constant="10" id="p1G-qv-bnC"/>
+                                            <constraint firstAttribute="trailing" secondItem="XLI-OB-kku" secondAttribute="trailing" id="pOM-zM-3Og"/>
+                                            <constraint firstItem="AfG-fh-ld4" firstAttribute="leading" secondItem="5xa-XB-LZB" secondAttribute="leading" id="pp6-Z9-swT"/>
+                                            <constraint firstItem="AfG-fh-ld4" firstAttribute="centerY" secondItem="5xa-XB-LZB" secondAttribute="centerY" id="q8F-4E-xLP"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="XLI-OB-kku" secondAttribute="bottom" id="urL-4P-iXA"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="label" destination="XLI-OB-kku" id="TlE-gp-mGg"/>
+                                            <outlet property="rotaryKnob" destination="AfG-fh-ld4" id="ctz-Fo-Ty5"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.14237646354545741" green="0.4977904081069523" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="XYi-c7-WFX" firstAttribute="centerX" secondItem="xxp-zh-HdJ" secondAttribute="centerX" id="8z4-1n-DDr"/>
+                            <constraint firstItem="pZY-yO-FZB" firstAttribute="top" secondItem="Sii-Ki-860" secondAttribute="bottom" id="Azu-iD-x7T"/>
+                            <constraint firstItem="XYi-c7-WFX" firstAttribute="top" secondItem="pZY-yO-FZB" secondAttribute="bottom" id="KKf-K0-UQb"/>
+                            <constraint firstItem="pZY-yO-FZB" firstAttribute="leading" secondItem="xxp-zh-HdJ" secondAttribute="leadingMargin" id="bnE-vk-Qyq"/>
+                            <constraint firstItem="Sii-Ki-860" firstAttribute="top" secondItem="xxp-zh-HdJ" secondAttribute="top" constant="20" id="boR-mN-6az"/>
+                            <constraint firstAttribute="trailing" secondItem="Sii-Ki-860" secondAttribute="trailing" id="c7x-uL-edx"/>
+                            <constraint firstItem="Sii-Ki-860" firstAttribute="leading" secondItem="xxp-zh-HdJ" secondAttribute="leading" id="m5X-9g-jLm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pZY-yO-FZB" secondAttribute="trailing" id="tqG-WE-TM8"/>
+                            <constraint firstAttribute="bottom" secondItem="XYi-c7-WFX" secondAttribute="bottom" constant="20" id="y8H-rE-1fx"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mixKnob" destination="5xa-XB-LZB" id="wpm-Pu-ypv"/>
+                        <outlet property="onOffButton" destination="XYi-c7-WFX" id="P6P-Ww-dbI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nkx-LG-00C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

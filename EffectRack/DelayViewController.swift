@@ -14,11 +14,9 @@ class DelayViewController: UIViewController, PropertyKnobDelegate, EffectControl
     @IBOutlet weak var timeKnob: PropertyKnob!
     @IBOutlet weak var feedbackKnob: PropertyKnob!
     @IBOutlet weak var mixKnob: PropertyKnob!
+    @IBOutlet weak var onOffButton: UIButton!
 
-    weak var delegate: EffectDelegate?
     var effect: AKNode?
-
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,20 +26,16 @@ class DelayViewController: UIViewController, PropertyKnobDelegate, EffectControl
         mixKnob.delegate = self        
     }
 
-    func configureEffect(input: AKNode) -> AKNode? {
-        effect = AKDelay(input)        
+    func initEffect(input: AKNode) -> AKNode? {
+        effect = AKDelay(input)
 
-        propertyKnob(propertyKnob: timeKnob, didChange: timeKnob.value)
-        propertyKnob(propertyKnob: feedbackKnob, didChange: feedbackKnob.value)
-        propertyKnob(propertyKnob: mixKnob, didChange: mixKnob.value)
-
-        print("Configuring delay");
+        toggleState(enable: false)
 
         return effect
     }
 
     func propertyKnob(propertyKnob: PropertyKnob, didChange value: CGFloat) {
-        guard let delay = effect as? AKDelay else {
+        guard let delay = effect as? AKDelay, delay.isStarted else {
             return
         }
 
@@ -62,12 +56,22 @@ class DelayViewController: UIViewController, PropertyKnobDelegate, EffectControl
             return
         }
 
-        delay.isStarted ? delay.stop() : delay.start()
+        toggleState(enable: !delay.isStarted)
+    }
 
-        let imageName = delay.isStarted ? "push_button_active" : "push_button_inactive"
-        sender.setImage(UIImage(named: imageName), for: .normal)
+    func toggleState(enable: Bool) {
+        let imageName = enable ? "push_button_active" : "push_button_inactive"
+        onOffButton.setImage(UIImage(named: imageName), for: .normal)
 
-        delegate?.enable(enable: delay.isStarted, effect: effect)
+        if enable {
+            propertyKnob(propertyKnob: timeKnob, didChange: timeKnob.value)
+            propertyKnob(propertyKnob: feedbackKnob, didChange: feedbackKnob.value)
+            propertyKnob(propertyKnob: mixKnob, didChange: mixKnob.value)
+
+            (effect as! AKDelay).start()
+        } else {
+            (effect as! AKDelay).stop()
+        }
     }
 
 }

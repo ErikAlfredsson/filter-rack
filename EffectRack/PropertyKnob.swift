@@ -29,8 +29,8 @@ class PropertyKnob: UIView {
         rotaryKnob.minimumValue = 0
         rotaryKnob.maximumValue = 1
         rotaryKnob.maxAngle = 135
-        rotaryKnob.value = 0.5
-        rotaryKnob.defaultValue = 0.5
+        rotaryKnob.value = 0
+        rotaryKnob.defaultValue = 0
         rotaryKnob.continuous = true
         rotaryKnob.backgroundColor = UIColor.clear
         rotaryKnob.setKnobImage(UIImage(named: "knob"), for: .normal)
