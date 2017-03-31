@@ -9,41 +9,35 @@
 import UIKit
 import AudioKit
 
-class DelayViewController: EffectViewController, PropertyKnobDelegate {
+class DelayViewController: UIViewController, PropertyKnobDelegate, EffectController {
 
     @IBOutlet weak var timeKnob: PropertyKnob!
     @IBOutlet weak var feedbackKnob: PropertyKnob!
     @IBOutlet weak var mixKnob: PropertyKnob!
 
-    let mic = AKMicrophone()
+    weak var delegate: EffectDelegate?
+    var effect: AKNode?
+
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         timeKnob.delegate = self
         feedbackKnob.delegate = self
-        mixKnob.delegate = self
-
-        configureEffect()
-        AudioKit.start()
+        mixKnob.delegate = self        
     }
 
-    func configureEffect() {
-        effect = AKDelay(mic)
+    func configureEffect(input: AKNode) -> AKNode? {
+        effect = AKDelay(input)        
 
-        guard let delay = effect as? AKDelay else {
-            return
-        }
+        propertyKnob(propertyKnob: timeKnob, didChange: timeKnob.value)
+        propertyKnob(propertyKnob: feedbackKnob, didChange: feedbackKnob.value)
+        propertyKnob(propertyKnob: mixKnob, didChange: mixKnob.value)
 
-        delay.time = 0.01
-        delay.feedback  = 0.9
-        delay.dryWetMix = 0.6
+        print("Configuring delay");
 
-        timeKnob.value = CGFloat(delay.time)
-        feedbackKnob.value = CGFloat(delay.feedback)
-        mixKnob.value = CGFloat(delay.dryWetMix)
-
-        AudioKit.output = effect
+        return effect
     }
 
     func propertyKnob(propertyKnob: PropertyKnob, didChange value: CGFloat) {
@@ -61,6 +55,19 @@ class DelayViewController: EffectViewController, PropertyKnobDelegate {
         default:
             return
         }
+    }
+
+    @IBAction func onOffButtonTapped(_ sender: UIButton) {
+        guard let delay = effect as? AKDelay else {
+            return
+        }
+
+        delay.isStarted ? delay.stop() : delay.start()
+
+        let imageName = delay.isStarted ? "push_button_active" : "push_button_inactive"
+        sender.setImage(UIImage(named: imageName), for: .normal)
+
+        delegate?.enable(enable: delay.isStarted, effect: effect)
     }
 
 }

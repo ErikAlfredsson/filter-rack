@@ -7,8 +7,24 @@
 //
 
 import UIKit
+import AudioKit
 
-class ReverbViewController: UIViewController {
+class ReverbViewController: UIViewController, PropertyKnobDelegate, EffectController {
 
+    weak var delegate: EffectDelegate?
+    var effect: AKNode?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    }
+
+    func configureEffect(input: AKNode) -> AKNode? {
+        return effect
+    }
+
+    func propertyKnob(propertyKnob: PropertyKnob, didChange value: CGFloat) {
+
+    }
 
 }
