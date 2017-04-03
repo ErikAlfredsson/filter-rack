@@ -28,7 +28,7 @@ class DelayViewController: UIViewController, PropertyKnobDelegate, EffectControl
 
     func initEffect(input: AKNode) -> AKNode? {
         effect = AKDelay(input)
-
+        
         toggleState(enable: false)
 
         return effect
@@ -64,11 +64,11 @@ class DelayViewController: UIViewController, PropertyKnobDelegate, EffectControl
         onOffButton.setImage(UIImage(named: imageName), for: .normal)
 
         if enable {
+            (effect as! AKDelay).start()
+            
             propertyKnob(propertyKnob: timeKnob, didChange: timeKnob.value)
             propertyKnob(propertyKnob: feedbackKnob, didChange: feedbackKnob.value)
             propertyKnob(propertyKnob: mixKnob, didChange: mixKnob.value)
-
-            (effect as! AKDelay).start()
         } else {
             (effect as! AKDelay).stop()
         }

@@ -38,6 +38,7 @@ class PropertyKnob: UIView {
     }
 
     func rotaryKnobDidChange() {
+        value = rotaryKnob.value
         delegate?.propertyKnob(propertyKnob: self, didChange: rotaryKnob.value)
     }
 }

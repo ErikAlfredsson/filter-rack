@@ -34,7 +34,6 @@ class ReverbViewController: UIViewController, PropertyKnobDelegate, EffectContro
         guard let reverb = effect as? AKReverb, reverb.isStarted else {
             return
         }
-
         reverb.dryWetMix = Double(value)
     }
 
@@ -51,8 +50,9 @@ class ReverbViewController: UIViewController, PropertyKnobDelegate, EffectContro
         onOffButton.setImage(UIImage(named: imageName), for: .normal)
 
         if enable {
-            propertyKnob(propertyKnob: mixKnob, didChange: mixKnob.value)
             (effect as! AKReverb).start()
+            
+            propertyKnob(propertyKnob: mixKnob, didChange: mixKnob.value)
         } else {
             (effect as! AKReverb).stop()
         }
